@@ -1,0 +1,43 @@
+@media (max-width: 640px) {
+    .Events {
+       margin-top: 12px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .the-date {
+       margin-top: 2rem !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .date-2027 {
+       margin-top: 1rem !important;
+    }
+}
+
+@media (max-width: 416px) {
+    .card-number {
+        padding-top: -0.40rem !important;
+    }
+
+    .background-blanc{
+        height: 270px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .bloc2{
+        margin-bottom: -40px;
+        padding: 0 30px;
+    }
+}
+
+.carousel-track {
+    will-change: transform;
+}
+
+.carousel-track .group:hover .bg-cover {
+    transform: scale(1.03);
+}

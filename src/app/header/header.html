@@ -1,0 +1,227 @@
+<nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+
+        <div class="flex items-center justify-between h-20 gap-4">
+
+            <!-- Logo -->
+            <div class="flex items-center flex-shrink-0 logo-container">
+                <img src="logo.png" class="w-22 xl:w-22" alt>
+            </div>
+
+            <!-- Desktop menu -->
+            <div class="hidden lg:flex items-center gap-6 xl:gap-8 nav-links flex-1 justify-center min-w-0">
+
+                <a href="#"
+                    class="bg-primary text-white px-6 py-2 rounded-lg whitespace-nowrap font-medium xl:px-5 xl:py-1.5 xl:text-sm">
+                    Programme
+                </a>
+
+                <a href="#"
+                    class="text-gray-700 hover:text-primary font-medium xl:text-sm whitespace-nowrap">
+                    Intervenant
+                </a>
+
+                <a href="#"
+                    class="text-gray-700 hover:text-primary font-medium xl:text-sm whitespace-nowrap">
+                    Partenaires
+                </a>
+
+                <a href="#"
+                    class="text-gray-700 hover:text-primary font-medium xl:text-sm whitespace-nowrap">
+                    À Propos
+                </a>
+
+                <a href="#"
+                    class="text-gray-700 hover:text-primary font-medium xl:text-sm whitespace-nowrap">
+                    Infos Pratiques
+                </a>
+
+                <a href="#"
+                    class="text-gray-700 hover:text-primary font-medium xl:text-sm whitespace-nowrap">
+                    Contact
+                </a>
+
+            </div>
+
+            <!-- Right Actions -->
+            <div class="hidden lg:flex items-center gap-3 shrink-0 nav-actions">
+
+                <!-- Language -->
+                <div class="relative">
+
+                    <button
+                        type="button"
+                        class="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 font-medium"
+                        (click)="toggleLanguage($event)">
+
+                        <div class="w-5 h-5 flex items-center justify-center xl:w-4 xl:h-4">
+                            <i class="ri-global-line text-gray-600"></i>
+                        </div>
+
+                        <span>{{ activeLanguage }}</span>
+
+                        <div class="w-4 h-4 flex items-center justify-center xl:w-3 xl:h-3">
+                            <i class="ri-arrow-down-s-line text-gray-600"></i>
+                        </div>
+
+                    </button>
+
+                    <!-- Language dropdown -->
+                    <div
+                        class="language-menu absolute right-0 z-20 mt-2 min-w-full overflow-hidden rounded-sm border border-gray-200 bg-white"
+                        [class.hidden]="!languageOpen">
+
+                        <button
+                            class="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 xl:px-3 xl:py-2 xl:text-xs"
+                            [class.hidden]="activeLanguage === 'Français'"
+                            (click)="setLanguage('Français', $event)">
+                            Français
+                        </button>
+
+                        <button
+                            class="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 xl:px-3 xl:py-2 xl:text-xs"
+                            [class.hidden]="activeLanguage === 'Portugais'"
+                            (click)="setLanguage('Portugais', $event)">
+                            Portugais
+                        </button>
+
+                        <hr>
+
+                        <button
+                            class="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 xl:px-3 xl:py-2 xl:text-xs"
+                            [class.hidden]="activeLanguage === 'Anglais'"
+                            (click)="setLanguage('Anglais', $event)">
+                            Anglais
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Espace Personnel -->
+                <button
+                    class="bg-primary text-white px-5 py-2 rounded-lg whitespace-nowrap font-medium text-sm xl:px-5 xl:py-1.5 xl:text-sm">
+                    Espace Personnel
+                </button>
+
+            </div>
+
+            <!-- Burger Menu Button -->
+            <button
+                class="lg:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-primary"
+                (click)="toggleMobileMenu(); $event.stopPropagation()">
+
+                <i class="ri-menu-line text-2xl"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+        class="lg:hidden fixed inset-0 z-60 bg-black bg-opacity-50"
+        [class.hidden]="!mobileMenuOpen"
+        (click)="toggleMobileMenu()">
+
+        <div
+            class="fixed right-0 top-0 h-full w-80 bg-white shadow-lg mobile-menu"
+            [class.translate-x-0]="mobileMenuOpen"
+            (click)="$event.stopPropagation()">
+
+            <!-- Close -->
+            <div class="flex justify-end p-4">
+
+                <button
+                    class="text-gray-700 hover:text-primary"
+                    (click)="toggleMobileMenu()">
+
+                    <i class="ri-close-line text-2xl"></i>
+
+                </button>
+
+            </div>
+
+            <div class="px-6 py-4 space-y-6">
+
+                <!-- Mobile Navigation -->
+                <div class="space-y-3">
+
+                    <a href="#"
+                        class="underline text-primary py-2 rounded-lg font-medium">
+                        Programme
+                    </a>
+
+                    <a href="#"
+                        class="block text-gray-700 hover:text-primary font-medium py-2">
+                        Intervenant
+                    </a>
+
+                    <a href="#"
+                        class="block text-gray-700 hover:text-primary font-medium py-2">
+                        Partenaires
+                    </a>
+
+                    <a href="#"
+                        class="block text-gray-700 hover:text-primary font-medium py-2">
+                        À Propos
+                    </a>
+
+                    <a href="#"
+                        class="block text-gray-700 hover:text-primary font-medium py-2">
+                        Infos Pratiques
+                    </a>
+
+                    <a href="#"
+                        class="block text-gray-700 hover:text-primary font-medium py-2">
+                        Contact
+                    </a>
+
+                </div>
+
+                <!-- Mobile Language -->
+                <div>
+
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Langue
+                    </label>
+
+                    <select
+                        class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm"
+                        (change)="onMobileLanguageChange($event)">
+
+                        <option
+                            value="Français"
+                            [selected]="activeLanguage === 'Français'">
+                            Français
+                        </option>
+
+                        <option
+                            value="Portugais"
+                            [selected]="activeLanguage === 'Portugais'">
+                            Portugais
+                        </option>
+
+                        <option
+                            value="Anglais"
+                            [selected]="activeLanguage === 'Anglais'">
+                            Anglais
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Mobile CTA -->
+                <button
+                    class="w-full bg-primary text-white px-3 py-2 rounded-lg font-medium">
+                    Espace Personnel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</nav>

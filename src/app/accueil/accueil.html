@@ -1,5 +1,234 @@
 <!-- header -->
-<app-header></app-header>
+<nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+
+        <div class="flex items-center justify-between h-20 gap-4">
+
+            <!-- Logo -->
+            <div class="flex items-center flex-shrink-0 logo-container">
+                <img src="logo.png" class="w-22 xl:w-22" alt>
+            </div>
+
+            <!-- Desktop menu -->
+            <div
+                class="hidden lg:flex items-center gap-6 xl:gap-8 nav-links flex-1 justify-center min-w-0">
+
+                <a href="#Intervenants"
+                    class="nav-link rounded-lg whitespace-nowrap font-medium xl:px-5 xl:py-1.5 xl:text-sm">
+                    Intervenants
+                </a>
+
+                <a href="#Programme"
+                    class=" nav-link font-medium xl:text-sm whitespace-nowrap">
+                    Programme
+                </a>
+
+                <a href="#Tarif"
+                    class=" nav-link font-medium xl:text-sm whitespace-nowrap">
+                    Tarif
+                </a>
+
+                <a href="#Partenaires"
+                    class=" nav-link font-medium xl:text-sm whitespace-nowrap">
+                    Partenaires
+                </a>
+
+                <a href="#infos-pratiques"
+                    class=" nav-link font-medium xl:text-sm whitespace-nowrap">
+                    Infos Pratiques
+                </a>
+
+                <a href="#contact-section"
+                    class=" nav-link font-medium xl:text-sm whitespace-nowrap">
+                    Contact
+                </a>
+
+            </div>
+
+            <!-- Right Actions -->
+            <div class="hidden lg:flex items-center gap-3 shrink-0 nav-actions">
+
+                <!-- Language -->
+                <div class="relative">
+
+                    <button
+                        type="button"
+                        class="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 font-medium"
+                        (click)="toggleLanguage($event)">
+
+                        <div
+                            class="w-5 h-5 flex items-center justify-center xl:w-4 xl:h-4">
+                            <i class="ri-global-line text-gray-600"></i>
+                        </div>
+
+                        <span>{{ activeLanguage }}</span>
+
+                        <div
+                            class="w-4 h-4 flex items-center justify-center xl:w-3 xl:h-3">
+                            <i class="ri-arrow-down-s-line text-gray-600"></i>
+                        </div>
+
+                    </button>
+
+                    <!-- Language dropdown -->
+                    <div
+                        class="language-menu absolute right-0 z-20 mt-2 min-w-full overflow-hidden rounded-sm border border-gray-200 bg-white"
+                        [class.hidden]="!languageOpen">
+
+                        <button
+                            class="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 xl:px-3 xl:py-2 xl:text-xs"
+                            [class.hidden]="activeLanguage === 'Français'"
+                            (click)="setLanguage('Français', $event)">
+                            Français
+                        </button>
+
+                        <button
+                            class="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 xl:px-3 xl:py-2 xl:text-xs"
+                            [class.hidden]="activeLanguage === 'Portugais'"
+                            (click)="setLanguage('Portugais', $event)">
+                            Portugais
+                        </button>
+
+                        <hr>
+
+                        <button
+                            class="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 xl:px-3 xl:py-2 xl:text-xs"
+                            [class.hidden]="activeLanguage === 'Anglais'"
+                            (click)="setLanguage('Anglais', $event)">
+                            Anglais
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Espace Personnel -->
+                <button
+                    class="bg-primary text-white px-5 py-2 rounded-lg whitespace-nowrap font-medium text-sm xl:px-5 xl:py-1.5 xl:text-sm">
+                    Espace Personnel
+                </button>
+
+            </div>
+
+            <!-- Burger Menu Button -->
+            <button
+                class="lg:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-primary"
+                (click)="toggleMobileMenu(); $event.stopPropagation()">
+
+                <i class="ri-menu-line text-2xl"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+        class="lg:hidden fixed inset-0 z-60 bg-black bg-opacity-50"
+        [class.hidden]="!mobileMenuOpen"
+        (click)="toggleMobileMenu()">
+
+        <div
+            class="fixed right-0 top-0 h-full w-80 bg-white shadow-lg mobile-menu"
+            [class.translate-x-0]="mobileMenuOpen"
+            (click)="$event.stopPropagation()">
+
+            <!-- Close -->
+            <div class="flex justify-end p-4">
+
+                <button
+                    class="text-gray-700 hover:text-primary"
+                    (click)="toggleMobileMenu()">
+
+                    <i class="ri-close-line text-2xl"></i>
+
+                </button>
+
+            </div>
+
+            <div class="px-6 py-4 space-y-6">
+
+                <!-- Mobile Navigation -->
+                <div class="space-y-3">
+
+                    <a href="#Intervenants"
+                        class="nav-link text-primary py-2 rounded-lg font-medium">
+                        Intervenants
+                    </a>
+
+                    <a href="#Programme"
+                        class="nav-link block text-gray-700 hover:text-primary font-medium py-2">
+                        Programme
+                    </a>
+
+                    <a href="#Tarif"
+                        class="nav-link block text-gray-700 hover:text-primary font-medium py-2">
+                        Tarif
+                    </a>
+
+                    <a href="#Partenaires"
+                        class="nav-link block text-gray-700 hover:text-primary font-medium py-2">
+                        Partenaires
+                    </a>
+
+                    <a href="#infos-pratiques"
+                        class="nav-link block text-gray-700 hover:text-primary font-medium py-2">
+                        Infos Pratiques
+                    </a>
+
+                    <a href="#contact-section"
+                        class="nav-link block text-gray-700 hover:text-primary font-medium py-2">
+                        Contact
+                    </a>
+
+                </div>
+
+                <!-- Mobile Language -->
+                <div>
+
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Langue
+                    </label>
+
+                    <select
+                        class="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm"
+                        (change)="onMobileLanguageChange($event)">
+
+                        <option
+                            value="Français"
+                            [selected]="activeLanguage === 'Français'">
+                            Français
+                        </option>
+
+                        <option
+                            value="Portugais"
+                            [selected]="activeLanguage === 'Portugais'">
+                            Portugais
+                        </option>
+
+                        <option
+                            value="Anglais"
+                            [selected]="activeLanguage === 'Anglais'">
+                            Anglais
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Mobile CTA -->
+                <button
+                    class="w-full bg-primary text-white px-3 py-2 rounded-lg font-medium">
+                    Espace Personnel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</nav>
 
 <!-- hero section -->
 <section class="relative min-h-screen bg-cover bg-center bg-no-repeat"
@@ -62,7 +291,7 @@
         </div>
     </div>
     <!-- Event Details -->
-  
+
     <div class="max-w-7xl mx-auto px-6 relative z-30 -mt-4 Events">
         <div class="bg-white rounded-3xl shadow-2xl p-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
@@ -130,12 +359,11 @@
 </section>
 
 <!-- INTERVENANTS Section -->
-<section class="py-20 mt-8 overflow-hidden">
+<section id="Intervenants" class="py-20 mt-8 overflow-hidden">
     <div class="max-w-7xl px-0 lg:px-6">
 
         <div class="flex flex-col-reverse lg:flex-row items-start gap-20">
 
-            <!-- bloc 1 -->
             <!-- bloc 1 -->
             <div class="w-full lg:w-3/4 lg:-ml-6 overflow-hidden">
 
@@ -148,61 +376,63 @@
 
                     <!-- card -->
                     <div
-    class="flex-shrink-0 w-[33.333%] relative group overflow-hidden">
+                        class="flex-shrink-0 w-[33.333%] relative group overflow-hidden">
 
-    <!-- image -->
-    <div
-        class="h-96 border-2 bg-cover bg-center relative overflow-hidden"
-        [style.background-image]="'url(' + item.image + ')'">
+                        <!-- image -->
+                        <div
+                            class="h-96 border-2 bg-cover bg-center relative overflow-hidden"
+                            [style.background-image]="'url(' + item.image + ')'">
 
-        <!-- overlay -->
-        <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+                            <!-- overlay -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
-        </div>
+                            <!-- contenu -->
+                            <div
+                                class="absolute inset-0 flex flex-col justify-end p-7 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
 
-        <!-- contenu -->
-        <div
-            class="absolute inset-0 flex flex-col justify-end p-7 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                                <!-- icones -->
+                                <div
+                                    class="absolute right-6 bottom-28 flex flex-col gap-5">
 
-            <!-- icones -->
-            <div class="absolute right-6 bottom-28 flex flex-col gap-5">
+                                    <i
+                                        class="fab fa-instagram text-white text-xl cursor-pointer hover:scale-110 transition-transform">
+                                    </i>
 
-                <i
-                    class="fab fa-instagram text-white text-xl cursor-pointer hover:scale-110 transition-transform">
-                </i>
+                                    <i
+                                        class="fab fa-dribbble text-white text-xl cursor-pointer hover:scale-110 transition-transform">
+                                    </i>
 
-                <i
-                    class="fab fa-dribbble text-white text-xl cursor-pointer hover:scale-110 transition-transform">
-                </i>
+                                    <div
+                                        class=" w-12 h-12 bg-white/20 backdrop-blur-md flex items-center justify-center"
+                                        style="margin-left: -10px;">
 
-                <div
-                    class="w-12 h-12 bg-white/20 backdrop-blur-md flex items-center justify-center">
+                                        <i
+                                            class="fab fa-behance text-white text-xl"></i>
 
-                    <i class="fab fa-behance text-white text-xl"></i>
+                                    </div>
 
-                </div>
+                                </div>
 
-            </div>
+                                <!-- texte -->
+                                <div>
 
-            <!-- texte -->
-            <div>
+                                    <h3
+                                        class="text-3xl font-bold text-white leading-tight">
+                                        {{ item.nom }}
+                                    </h3>
 
-                <h3 class="text-3xl font-bold text-white leading-tight">
-                    {{ item.nom }}
-                </h3>
+                                    <p class="text-gray-300 mt-2 text-lg">
+                                        {{ item.role }}
+                                    </p>
 
-                <p class="text-gray-300 mt-2 text-lg">
-                    {{ item.role }}
-                </p>
+                                </div>
 
-            </div>
+                            </div>
 
-        </div>
+                        </div>
 
-    </div>
-
-</div>
+                    </div>
 
                     }
 
@@ -239,21 +469,21 @@
                 <div class="max-w-full lg:max-w-md w-full flex flex-col">
 
                     <div
-                        class="text-primary text-sm font-medium uppercase tracking-wide mb-4">
+                        class="text-primary text-lg font-medium uppercase tracking-wide mb-4">
                         INTERVENANTS
                     </div>
 
-                    <h1 class="text-2xl font-extrabold text-gray-900">
+                    <h1 class="text-3xl font-extrabold text-gray-900">
                         RENCONTREZ LES INTERVENANTS INCROYABLES
                     </h1>
 
-                    <p class="text-gray-500 mt-2 text-sm">
+                    <p class="text-gray-500 mt-2 text-lg">
                         Événement principal pour les professionnels du design et
                         de l'architecture
                     </p>
 
                     <!-- boutons desktop -->
-                    <div class="hidden lg:flex mt-36 gap-4 w-full">
+                    <div class="hidden lg:flex mt-20 gap-4 w-full">
 
                         <button
                             (click)="prevSlide()"
@@ -280,7 +510,7 @@
 </section>
 
 <!-- programme -->
-<section class="py-20 bg-gray-50">
+<section id="Programme" class="py-20 bg-gray-50">
     <div
         class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
 
@@ -631,7 +861,7 @@
 </section>
 
 <!-- CTA -->
-<section class="py-24 bg-white">
+<section id="Tarif" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
 
         <!-- HEADER -->
@@ -700,7 +930,8 @@
 </section>
 
 <!-- partenaires -->
-<section class="bg-gray-50 py-16 sm:py-20 relative overflow-hidden">
+<section id="Partenaires"
+    class="bg-gray-50 py-16 sm:py-20 relative overflow-hidden">
 
     <!-- Titre -->
     <div class="text-center mb-16 sm:mb-20 px-6">
@@ -777,7 +1008,7 @@
 </section>
 
 <!-- infos pratiques -->
-<section class="bg-[#f3f3f3] py-20 px-6">
+<section id="infos-pratiques" class="bg-[#f3f3f3] py-20 px-6">
 
     <!-- Header -->
     <div class="text-center mb-16">
@@ -852,6 +1083,202 @@
             </span>
         </div>
 
+    </div>
+</section>
+
+<!-- contact -->
+<section id="contact-section" class="py-20 bg-white">
+    <!-- Header -->
+    <div class="text-center mb-16">
+        <p class="text-primary tracking-widest text-sm mb-3">
+            CONTACT
+        </p>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-black">
+            CONTACTEZ-NOUS
+        </h2>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Formulaire de contact -->
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-8"
+                    data-i18n="contact.form.title">Envoyez-nous un message</h2>
+                <form class="space-y-6 bg-gray-50 p-6 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2"
+                                data-i18n="contact.form.firstName">Prénom</label>
+                            <input type="text"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                data-i18n-placeholder="contact.form.firstNamePlaceholder">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2"
+                                data-i18n="contact.form.lastName">Nom</label>
+                            <input type="text"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                data-i18n-placeholder="contact.form.lastNamePlaceholder">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2"
+                            data-i18n="contact.form.email">Email</label>
+                        <input type="email"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                            data-i18n-placeholder="contact.form.emailPlaceholder">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2"
+                            data-i18n="contact.form.phone">Téléphone</label>
+                        <input type="tel"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                            data-i18n-placeholder="contact.form.phonePlaceholder">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2"
+                            data-i18n="contact.form.subject">Sujet</label>
+                        <select
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                            <option value
+                                data-i18n="contact.form.subjectSelect">Sélectionnez
+                                un sujet</option>
+                            <option value="donation"
+                                data-i18n="contact.form.subjectDonation">Informations
+                                sur le programme</option>
+                            <option value="volunteer"
+                                data-i18n="contact.form.subjectVolunteer">Devenir
+                                bénévole</option>
+                            <option value="partnership"
+                                data-i18n="contact.form.subjectPartnership">Partenariat</option>
+                            <option value="information"
+                                data-i18n="contact.form.subjectInformation">Demande
+                                d'information</option>
+                            <option value="other"
+                                data-i18n="contact.form.subjectOther">Autre</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2"
+                            data-i18n="contact.form.message">Message</label>
+                        <textarea rows="6"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none"
+                            data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-primary text-white py-4 rounded-lg hover:bg-orange-600 transition-colors font-semibold"
+                        data-i18n="contact.form.submit">
+                        Envoyer le message
+                    </button>
+                </form>
+            </div>
+            <!-- Informations de contact -->
+            <div class="info-contact">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8"
+                    data-i18n="contact.info.title">Nos coordonnées</h2>
+                <div class="space-y-8">
+                    <!-- Adresse -->
+                    <div class="flex items-start">
+                        <div
+                            class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-6 mt-1">
+                            <div
+                                class="w-6 h-6 flex items-center justify-center">
+                                <i
+                                    class="ri-map-pin-line text-primary text-xl"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2"
+                                data-i18n="contact.info.addressTitle">Adresse</h3>
+                            <p class="text-gray-600"
+                                data-i18n="contact.info.address">Dakar, Sénégal
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Téléphone -->
+                    <div class="flex items-start">
+                        <div
+                            class="w-12 h-12 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center mr-6 mt-1">
+                            <div
+                                class="w-6 h-6 flex items-center justify-center">
+                                <i
+                                    class="ri-phone-line text-secondary text-xl"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2"
+                                data-i18n="contact.info.phoneTitle">Téléphone</h3>
+                            <p class="text-gray-600">+221 33 123 45 67</p>
+                            <p class="text-gray-600">+221 77 987 65 43</p>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="flex items-start">
+                        <div
+                            class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-6 mt-1">
+                            <div
+                                class="w-6 h-6 flex items-center justify-center">
+                                <i
+                                    class="ri-mail-line text-primary text-xl"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2"
+                                data-i18n="contact.info.emailTitle">Email</h3>
+                            <p class="text-gray-600">contact@acoa2027.com</p>
+                            <p class="text-gray-600">info@acoa2027.com</p>
+                        </div>
+                    </div>
+                    <!-- Horaires -->
+                    <div class="flex items-start">
+                        <div
+                            class="w-12 h-12 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center mr-6 mt-1">
+                            <div
+                                class="w-6 h-6 flex items-center justify-center">
+                                <i
+                                    class="ri-time-line text-secondary text-xl"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2"
+                                data-i18n="contact.info.hoursTitle">Disponibilités</h3>
+                            <p class="text-gray-600"
+                                data-i18n="contact.info.hoursWeek">Lundi -
+                                Vendredi : 8h00 - 18h00</p>
+                            <p class="text-gray-600"
+                                data-i18n="contact.info.hoursWeekend">Samedi :
+                                9h00 - 13h00</p>
+                            <p class="text-gray-600"
+                                data-i18n="contact.info.hoursSunday">Dimanche :
+                                Fermé</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Réseaux sociaux -->
+                <div class="mt-12">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-6"
+                        data-i18n="contact.social.title">Suivez-nous</h3>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-facebook-fill text-xl"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-twitter-fill text-xl"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-instagram-fill text-xl"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-linkedin-fill text-xl"></i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 

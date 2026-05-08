@@ -79,14 +79,22 @@
                             class="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 xl:px-3 xl:py-2 xl:text-xs"
                             [class.hidden]="activeLanguage === 'Français'"
                             (click)="setLanguage('Français', $event)">
-                            Français
+                            <span class="flex items-center gap-2">
+                                <img src="https://flagcdn.com/w20/fr.png"
+                                    alt="france" class="h-4 w-4 object-cover">
+                                Français
+                            </span>
                         </button>
 
                         <button
                             class="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 xl:px-3 xl:py-2 xl:text-xs"
                             [class.hidden]="activeLanguage === 'Portugais'"
                             (click)="setLanguage('Portugais', $event)">
-                            Portugais
+                            <span class="flex items-center gap-2">
+                                <img src="https://flagcdn.com/w20/pt.png"
+                                    alt="portugal" class="h-4 w-4 object-cover">
+                                Portugais
+                            </span>
                         </button>
 
                         <hr>
@@ -95,7 +103,11 @@
                             class="w-full px-4 py-3 text-left text-sm text-gray-700 hover:bg-gray-50 xl:px-3 xl:py-2 xl:text-xs"
                             [class.hidden]="activeLanguage === 'Anglais'"
                             (click)="setLanguage('Anglais', $event)">
-                            Anglais
+                            <span class="flex items-center gap-2">
+                                <img src="https://flagcdn.com/w20/us.png"
+                                    alt="gb" class="h-4 w-4 object-cover">
+                                Anglais
+                            </span>
                         </button>
 
                     </div>
@@ -104,7 +116,7 @@
 
                 <!-- Espace Personnel -->
                 <button
-                    class="bg-primary text-white px-5 py-2 rounded-lg whitespace-nowrap font-medium text-sm xl:px-5 xl:py-1.5 xl:text-sm">
+                    class="bg-primary text-white px-5 py-2 rounded-lg whitespace-nowrap font-medium text-sm xl:px-5 xl:py-1.8 xl:text-sm">
                     Espace Personnel
                 </button>
 
@@ -400,16 +412,14 @@
                                     </i>
 
                                     <i
-                                        class="fab fa-dribbble text-white text-xl cursor-pointer hover:scale-110 transition-transform">
+                                        class="fab fa-linkedin text-white text-xl cursor-pointer hover:scale-110 transition-transform">
                                     </i>
 
                                     <div
                                         class=" w-12 h-12 bg-white/20 backdrop-blur-md flex items-center justify-center"
                                         style="margin-left: -10px;">
-
                                         <i
-                                            class="fab fa-behance text-white text-xl"></i>
-
+                                            class="fa-brands fa-x-twitter text-xl text-white"></i>
                                     </div>
 
                                 </div>
@@ -1213,7 +1223,7 @@
                 <h2 class="text-3xl font-bold text-gray-900 mb-8"
                     data-i18n="contact.form.title">Envoyez-nous un message</h2>
                 <form class="space-y-2 bg-gray-50 p-6 rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div>
                             <label class="block text-gray-700 mb-2"
                                 data-i18n="contact.form.firstName">Prénom</label>
@@ -1229,7 +1239,7 @@
                                 data-i18n-placeholder="contact.form.lastNamePlaceholder">
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div>
                             <label class="block text-gray-700 mb-2"
                                 data-i18n="contact.form.firstName">Email</label>
